@@ -19,5 +19,5 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 }
 
 # Add the public key to the authrozied_keys file
-Add-Content -Path "C:\ProgramData\ssh\administrators_authorized_keys" ${ssh_pub}
+#Add-Content -Path "C:\ProgramData\ssh\administrators_authorized_keys" ${ssh_pub}
 </powershell>
