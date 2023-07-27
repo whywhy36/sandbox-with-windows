@@ -51,6 +51,9 @@ resource "aws_instance" "vm" {
 
     # Add the public key to the authrozied_keys file
     Add-Content -Path "C:\ProgramData\ssh\administrators_authorized_keys" "${data.external.env.result.ssh_pub}"
+
+    # Ensure the administrators_authorized_keys file complies with the permissions requirement.
+    icacls.exe ""C:\ProgramData\ssh\administrators_authorized_keys"" /inheritance:r /grant ""Administrators:F"" /grant ""SYSTEM:F""
     </powershell>
 EOT
 }
