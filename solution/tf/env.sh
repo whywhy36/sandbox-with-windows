@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Generate an SSH key pair
-ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa -N ""
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_rsa_test -N "" -q
 
 # Read the content of the public key file into a variable
-public_key=$(cat ~/.ssh/id_rsa.pub)
+public_key=$(cat ~/.ssh/id_rsa_test.pub)
 
 cat <<EOF
 {
