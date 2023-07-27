@@ -23,18 +23,12 @@ data "aws_region" "current" {}
 
 data "aws_caller_identity" "current" {}
 
-data "template_file" "init" {
-    template = "${file("${path.module}/init.tpl")}"
-
-    vars = {
-        ssh_pub = data.external.env.result.ssh_pub
-    }
-}
-
 resource "aws_instance" "vm" {
   launch_template {
     name = var.launch_template_name
   }
   get_password_data      = true
-  user_data = "${data.template_file.init.rendered}"
+  user_data = templatefile("${path.module}/init.tpl", {
+    ssh_pub = data.external.env.result.ssh_pub
+  })
 }
