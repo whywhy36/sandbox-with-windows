@@ -36,5 +36,5 @@ resource "aws_instance" "vm" {
     name = var.launch_template_name
   }
   get_password_data      = true
-  user_data = data.template_file.init.rendered
+  user_data = ${data.template_file.init.rendered}
 }
