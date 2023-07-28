@@ -5,4 +5,4 @@ dotnet dev-certs https
 dotnet dev-certs https --trust
 dotnet build
 
-Start-Job -ScriptBlock{dotnet run --launch-profile Web --urls "http://0.0.0.0:5000;https://0.0.0.0:5001"}
+Start-Process -FilePath "dotnet" -ArgumentList "run --launch-profile Web"
