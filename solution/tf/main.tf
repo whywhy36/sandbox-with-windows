@@ -56,7 +56,7 @@ resource "aws_instance" "vm" {
     icacls.exe ""C:\ProgramData\ssh\administrators_authorized_keys"" /inheritance:r /grant ""Administrators:F"" /grant ""SYSTEM:F""
 
     # Generate dev certificate
-    dotnet dev-certs --https -v
+    dotnet dev-certs https -v
     </powershell>
 EOT
 }
